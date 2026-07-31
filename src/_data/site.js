@@ -10,7 +10,9 @@ module.exports = {
     { text: "Experience", url: "/experience/" },
     { text: "Notes", url: "/notes/" },
     { text: "About Me", url: "/aboutme/" },
-    { text: "Experiments", url: "/experiments/" }
+    { text: "Experiments", url: "/experiments/" },
+    { text: "Search", url: "/search/" }
+
   ],
   social: [
     { text: "Email", url: "mailto:yilin.cai2004@gmail.com" },

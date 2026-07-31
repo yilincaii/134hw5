@@ -4,9 +4,10 @@
   "description": "Yilin Cai - CSE 134B HW5: Eleventy static site with progressive JS enhancements and a web component",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy && pagefind --site _site"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+    "@11ty/eleventy": "^3.0.0",
+    "pagefind": "^1.5.2"
   }
 }
