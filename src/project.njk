@@ -2,6 +2,8 @@
 title: Project
 layout: base.njk
 permalink: /project/
+extraScripts:
+  - /js/github-repos.js
 ---
 <header>
 	{% include "header.njk" %}
@@ -10,6 +12,13 @@ permalink: /project/
 </header>
 
 <main id="main-content">
+	<section id="github-activity">
+		<h2>Recent GitHub Activity</h2>
+		<github-repos username="yilincaii" count="5">
+			<p class="grepos-fallback">My public repositories are listed on <a href="https://github.com/yilincaii" target="_blank" rel="noopener noreferrer">github.com/yilincaii</a>.</p>
+		</github-repos>
+	</section>
+
 	<section id="projects" aria-labelledby="projects-heading">
 		<h2 id="projects-heading">Selected Work</h2>
 
@@ -59,4 +68,33 @@ permalink: /project/
 			<p><time datetime="2024-01">January 2024</time> &ndash; <time datetime="2024-06">June 2024</time></p>
 			<p><strong>Type:</strong> Machine Learning and Recommendation Systems</p>
 			<p>A recommendation system that predicts which grocery products a customer is likely to purchase again and uses those predictions to produce personalized suggestions.</p>
-			<p>I
+			<p>I built a two-stage pipeline that first generated likely product candidates and then ranked them using machine learning and deep learning models.</p>
+			<p><strong>Technologies:</strong> Python, TensorFlow, scikit-learn, Pandas, Spark</p>
+			<p><a href="https://github.com/yilincaii/Recommendation-System-for-Repurchase-Prediction-Personalization" target="_blank" rel="noopener noreferrer">View Source Code</a></p>
+		</article>
+
+		<article id="nlp-chatbot">
+			<h3>Chatbot: Natural Language Processing</h3>
+			<p><time datetime="2023-11">November 2023</time> &ndash; <time datetime="2024-02">February 2024</time></p>
+			<p><strong>Type:</strong> Natural Language Processing</p>
+			<p>A conversational chatbot designed for automated question answering and topic classification across multiple user intents.</p>
+			<p>I implemented a sequence-to-sequence model using RNN and LSTM architectures, along with a feed-forward network for classifying dialogue intents.</p>
+			<p><strong>Technologies:</strong> Python, TensorFlow, Keras, Pandas, SQL</p>
+			<p><a href="https://github.com/yilincaii/Chatbot" target="_blank" rel="noopener noreferrer">View Source Code</a></p>
+		</article>
+
+		<article id="pink-tax-analysis">
+			<h3>Gender and Clothing Prices: Analyzing the Pink Tax</h3>
+			<p><strong>Type:</strong> Data Science and Statistical Analysis</p>
+			<p>A team data science project investigating whether clothing associated with women is priced higher than clothing associated with men.</p>
+			<p>We cleaned and compared two retail datasets, explored pricing patterns across product categories and age groups, and used statistical hypothesis tests to evaluate whether the observed differences were significant.</p>
+			<p><strong>Technologies:</strong> Python, Pandas, NumPy, Matplotlib, Seaborn, SciPy, Exploratory Data Analysis, Statistical Hypothesis Testing</p>
+			<h3>Project presentation</h3>
+			<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jGe35Xs9fcI" title="Pink Tax data analysis project presentation"></iframe>
+			<ul>
+				<li><a href="https://www.youtube.com/watch?v=jGe35Xs9fcI" target="_blank" rel="noopener noreferrer">Open Demo on YouTube</a></li>
+				<li><a href="https://github.com/COGS108/Group136_WI26" target="_blank" rel="noopener noreferrer">View Source Code</a></li>
+			</ul>
+		</article>
+	</section>
+</main>

@@ -17,7 +17,6 @@ intro-quote {
 	border-left: 4px solid #209cb5;
 	padding-left: 1em;
 }
-
 .skip-link {
 	position: absolute;
 	left: -9999px;
@@ -47,4 +46,40 @@ output {
 	font-size: 0.9em;
 	color: #b3261e;
 	margin-top: 0.25em;
+}
+
+
+/* Part 2: github-repos web component */
+github-repos {
+	display: block;
+}
+ 
+github-repos .grepos-error-message {
+	color: #b3261e;
+}
+ 
+github-repos .grepos-retry {
+	margin-left: 0.5em;
+}
+ 
+github-repos .grepos-list {
+	list-style: none;
+	padding: 0;
+}
+github-repos .grepos-list li {
+	border: 1px solid #333333;
+	padding: 0.5em 0.75em;
+	margin-bottom: 0.5em;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75em;
+	align-items: baseline;
+}
+github-repos .grepos-lang,
+github-repos .grepos-updated {
+	font-size: 0.85em;
+	color: #555555;
+}
+github-repos[state="ready"] .grepos-fallback {
+	display: none;
 }
