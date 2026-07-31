@@ -79,3 +79,15 @@ I picked Eleventy over Astro mostly because it felt closer to what I already kne
 **What it cost me:** honestly, a learning curve I wasn't expecting. I spent a while just confused about why my `.njk` files "weren't showing up" before I understood that `.njk` isn't something a browser opens directly — it only becomes real HTML after I run the build command. I also had a bug where I accidentally created a duplicate set of templates in the wrong folder, and Eleventy was silently ignoring the correct ones. Debugging that took actual time. There's a real setup cost before any of the "less repetition" payoff kicks in.
 
 **What I wouldn't use an SSG for:** if I were just making a single one-page site, or something with no real repeated structure, I don't think I'd bother. The whole point of an SSG is cutting down repetition across many pages, and if there's nothing to repeat, I'd just be adding a build step and a learning curve for no real reason. Plain HTML would honestly be faster to ship.
+
+## Extra Credit: Pagefind Search
+
+I added full-text search using Pagefind, and it runs automatically every time I build. My `npm run build` command is `eleventy && pagefind --site _site`, so Eleventy makes the site first, then Pagefind scans the finished HTML and builds a search index right on top of it. 
+
+**What actually gets built:** Pagefind drops a `/pagefind/` folder into `_site/` full of index files and a small JS runtime. My search page imports that runtime with a dynamic `import()` at runtime, since the file doesn't even exist until after the build finishes running.
+
+**How big the index is:** pretty tiny. My last build indexed 9 pages and about 750 words total, and Pagefind chunks that into a handful of small files instead of one giant blob, so only the pieces a search actually needs get downloaded.
+
+**Why it doesn't need a server:** Pagefind does all the searching right in the browser. Instead of sending my query off to some backend and waiting on a response, the browser just pulls down the small index files and runs the search locally with JavaScript.
+
+I scoped the indexing with `data-pagefind-body` on the `<main>` of every page, so only the actual page content gets indexed. Nav links and the footer never show up in results, and every result actually points to something different.
