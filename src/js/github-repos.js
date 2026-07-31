@@ -11,14 +11,31 @@ const TIMEOUT_MS = 5000;
 const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes
 
 const template = document.createElement('template');
-template.innerHTML = `
-	<p class="grepos-loading" hidden>Loading repositories&hellip;</p>
-	<p class="grepos-error" hidden>
-		<span class="grepos-error-message"></span>
-		<button type="button" class="grepos-retry">Retry</button>
-	</p>
-	<ul class="grepos-list" hidden></ul>
-`;
+
+const loadingEl = document.createElement('p');
+loadingEl.className = 'grepos-loading';
+loadingEl.hidden = true;
+loadingEl.textContent = 'Loading repositories\u2026';
+
+const errorEl = document.createElement('p');
+errorEl.className = 'grepos-error';
+errorEl.hidden = true;
+
+const errorMessageEl = document.createElement('span');
+errorMessageEl.className = 'grepos-error-message';
+
+const retryButton = document.createElement('button');
+retryButton.type = 'button';
+retryButton.className = 'grepos-retry';
+retryButton.textContent = 'Retry';
+
+errorEl.append(errorMessageEl, retryButton);
+
+const listEl = document.createElement('ul');
+listEl.className = 'grepos-list';
+listEl.hidden = true;
+
+template.content.append(loadingEl, errorEl, listEl);
 
 function timeAgo(isoDate) {
 	const then = new Date(isoDate).getTime();
@@ -85,6 +102,7 @@ class GithubRepos extends HTMLElement {
 	setState(state) {
 		this.setAttribute('state', state);
 	}
+
 	async load() {
 		if (this._controller) {
 			this._controller.abort();
@@ -137,7 +155,7 @@ class GithubRepos extends HTMLElement {
 	}
 
 	renderRepos(repos) {
-		this._listEl.innerHTML = '';
+		this._listEl.replaceChildren();
 
 		if (repos.length === 0) {
 			this.setState('idle');

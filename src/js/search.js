@@ -15,10 +15,29 @@ async function loadPagefind() {
 	}
 	return pagefind;
 }
+function renderExcerpt(container, excerptText) {
+	const pattern = /<mark>(.*?)<\/mark>/g;
+	let lastIndex = 0;
+	let match;
+
+	while ((match = pattern.exec(excerptText)) !== null) {
+		if (match.index > lastIndex) {
+			container.appendChild(document.createTextNode(excerptText.slice(lastIndex, match.index)));
+		}
+		const mark = document.createElement('mark');
+		mark.textContent = match[1];
+		container.appendChild(mark);
+		lastIndex = pattern.lastIndex;
+	}
+
+	if (lastIndex < excerptText.length) {
+		container.appendChild(document.createTextNode(excerptText.slice(lastIndex)));
+	}
+}
 
 async function runSearch(query) {
 	if (!query) {
-		results.innerHTML = '';
+		results.replaceChildren();
 		status.textContent = '';
 		return;
 	}
@@ -26,13 +45,14 @@ async function runSearch(query) {
 	const pf = await loadPagefind();
 	const search = await pf.search(query);
 
-	results.innerHTML = '';
+	results.replaceChildren();
 
 	if (search.results.length === 0) {
 		status.textContent = 'No results found.';
 		return;
 	}
 	status.textContent = `${search.results.length} result${search.results.length === 1 ? '' : 's'} found.`;
+
 	for (const result of search.results) {
 		const data = await result.data();
 
@@ -44,7 +64,7 @@ async function runSearch(query) {
 		li.appendChild(link);
 
 		const excerpt = document.createElement('p');
-		excerpt.innerHTML = data.excerpt; // Pagefind-controlled excerpt with <mark> highlights, not raw user input
+		renderExcerpt(excerpt, data.excerpt);
 		li.appendChild(excerpt);
 
 		results.appendChild(li);
