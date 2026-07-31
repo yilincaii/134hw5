@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	{% include "head.njk" %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="{{ description or site.description }}">
+	<meta name="author" content="{{ site.author }}">
+	<title>{{ title }} | {{ site.title }}</title>
 	<link rel="stylesheet" href="/styles/main.css">
+	{% include "head.njk" %}
 </head>
 <body>
 	<a class="skip-link" href="#main-content">Skip to main content</a>
 
-	{{ content | safe }}
+	<div class="page">
+		{{ content | safe }}
+	</div>
 
 	{% include "footer.njk" %}
 
