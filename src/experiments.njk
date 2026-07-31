@@ -1,0 +1,63 @@
+---
+title: Experiments
+layout: base.njk
+permalink: /experiments/
+extraScripts:
+  - /js/canvas-demo.js
+---
+<header>
+	{% include "header.njk" %}
+	<h1>Experiments</h1>
+</header>
+
+<main id="main-content">
+	<section id="template-demo">
+		<h2>Template</h2>
+		<template id="card-template">
+			<article>
+				<h3>Sample Title</h3>
+				<p>Sample description text.</p>
+			</article>
+		</template>
+		<p>The template above defines a reusable card structure. It is not rendered on the page unless cloned with JavaScript.</p>
+	</section>
+
+	<section id="audio-demo">
+		<h2>Audio</h2>
+		<audio controls>
+			<source src="/videos/audio.mp3" type="audio/mpeg">
+			Your browser does not support the audio.
+		</audio>
+	</section>
+
+	<section id="video-demo">
+		<h2>Video</h2>
+		<video controls width="400" height="225">
+			<source src="/videos/piano.mp4" type="video/mp4">
+			Your browser does not support the video.
+		</video>
+	</section>
+
+	<section id="canvas-demo">
+		<h2>Canvas</h2>
+		<noscript>
+			<p>This canvas demonstration requires JavaScript to draw the sample shape. The rest of the page remains available without JavaScript.</p>
+		</noscript>
+		<canvas id="demo-canvas" width="300" height="150"></canvas>
+	</section>
+
+	<section id="mathml-demo">
+		<h2>MathML: Mass&ndash;Energy Equivalence (Extra Credit)</h2>
+		<math>
+			<mi>E</mi>
+			<mo>=</mo>
+			<mi>m</mi>
+			<msup>
+				<mi>c</mi>
+				<mn>2</mn>
+			</msup>
+		</math>
+		<p>I think this is a good example of browsers just taking forever to agree on something. MathML has technically been in the spec since the late 90s, but Chrome only added it around version 24, and then removed it again because it was too unstable. Firefox and Safari had their own issues too, so for a long time nothing lined up across browsers.</p>
+		<p>It wasn&rsquo;t until Chromium built something called MathML Core (starting around version 109) that Chrome and Edge actually supported it properly. So even though the tag itself is old, I&rsquo;d guess most browsers only became reliable for MathML sometime around 2023, which is honestly pretty recent for something that&rsquo;s been in the spec this long.</p>
+	</section>
+</main>
