@@ -64,11 +64,11 @@ The paragraph inside the tags is what shows up if JavaScript never runs, or if t
 
 The element reflects what it's doing through a `state` attribute — `loading`, `ready`, or `error` — so I can style each state in plain CSS without touching the JS again.
 
-A couple implementation notes I want to call out:
+A few things I want to explain here, since I had to actually think these through:
 
-- I never use `innerHTML` with anything that came back from GitHub. The only `innerHTML` in the file sets up a fixed `<template>` I wrote myself, once, with no remote data in it. Every repo name, language, and date gets built with `document.createElement` and `textContent`. If I used `innerHTML` with the fetched data instead, and GitHub (or an attacker controlling a repo name) ever returned something like `<img src=x onerror=alert(1)>` as a "name," the browser would actually run it. Using `textContent` means that string just gets displayed as text, never executed.
-- Every fetch has a 5-second timeout through `AbortController`. If GitHub's API hangs, the component doesn't just spin forever — it drops into the error state with a retry button.
-- Results get cached in `sessionStorage` for 10 minutes so I'm not hammering the API every time I reload the page while working on the site.
+- I don't touch `innerHTML` anywhere with data that came from GitHub. The `<template>` at the top uses `innerHTML` once, but that's just a fixed skeleton I typed myself — no live data goes into it. Every repo name, language, and date gets added with `document.createElement` and `textContent` instead. Here's why that matters: if someone named a repo something like `<img src=x onerror=alert(1)>`, and I dumped that straight into `innerHTML`, the browser would actually try to run it as real HTML. `textContent` just prints it as plain text on the screen, so nothing ever executes.
+- Every fetch has a 5-second timeout using `AbortController`. If GitHub's API ever hangs, the widget doesn't sit there spinning forever — it switches to an error state with a retry button instead.
+- I cache results in `sessionStorage` for 10 minutes. That way I'm not pinging the GitHub API constantly while I'm just reloading the page over and over working on the site.
 
 ## Part 3: Static Site Generator
 
