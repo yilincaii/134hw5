@@ -1,0 +1,32 @@
+/* Structural borders only — per assignment rule, no styling beyond
+   border/border-width may be used to lay out the base page structure. */
+header,
+nav,
+main,
+footer,
+section,
+article,
+form,
+fieldset {
+	border: 1px solid #333333;
+}
+
+intro-quote {
+	display: block;
+	font-style: italic;
+	border-left: 4px solid #209cb5;
+	padding-left: 1em;
+}
+
+.skip-link {
+	position: absolute;
+	left: -9999px;
+	top: 0;
+}
+
+.skip-link:focus {
+	left: 0;
+	background: #fff;
+	padding: 0.5em 1em;
+	z-index: 100;
+}
