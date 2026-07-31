@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Personal portfolio website of Yilin Cai.">
+	<meta name="author" content="Yilin Cai">
+	<title>Home | Yilin Cai</title>
+	<link rel="stylesheet" href="styles/main.css">
+
+	<style>
+		intro-quote {
+			display: block;
+			font-style: italic;
+			border-left: 4px solid #209cb5;
+			padding-left: 1em;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="project.html">Project</a></li>
+				<li><a href="experience.html">Experience</a></li>
+				<li><a href="notes.html">Notes</a></li>
+				<li><a href="aboutme.html">About Me</a></li>
+				<li><a href="experiments.html">Experiments</a></li>
+			</ul>
+		</nav>
+		<h1>Yilin Cai</h1>
+		<intro-quote>
+			<p>&ldquo;I build things at the intersection of data and design.&rdquo;</p>
+		</intro-quote>
+	</header>
+
+	<main>
+		<h2>Explore</h2>
+
+		<article>
+			<h3><a href="project.html">Project</a></h3>
+			<p>My projects and a Kaggle competition.</p>
+		</article>
+
+		<article>
+			<h3><a href="experience.html">Experience</a></h3>
+			<p>Education and work history.</p>
+		</article>
+
+		<article>
+			<h3><a href="notes.html">Notes</a></h3>
+			<p>Notes on software engineering, algorithms, and web development.</p>
+		</article>
+
+		<article>
+			<h3><a href="about.html">About Me</a></h3>
+			<p>Introduction, career goals, interests, and contact info.</p>
+		</article>
+	</main>
+
+	<footer>
+		<p>&copy; 2026 Yilin Cai</p>
+	</footer>
+
+	<script src="scripts/analytics-placeholder.js" defer></script>
+
+	<!-- Custom element #2: prints "Hello World!" to the console-->
+	<script>
+		class HelloWorld extends HTMLElement {
+			connectedCallback() {
+				console.log('Hello World!');
+			}
+		}
+		customElements.define('hello-world', HelloWorld);
+	</script>
+	<hello-world></hello-world>
+</body>
+
+</html>

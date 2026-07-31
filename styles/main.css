@@ -1,0 +1,12 @@
+/* Structural borders only — per assignment rule, no styling beyond
+   border/border-width may be used to lay out the base page structure. */
+header,
+nav,
+main,
+footer,
+section,
+article,
+form,
+fieldset {
+	border: 1px solid #333333;
+}
