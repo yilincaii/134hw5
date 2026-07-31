@@ -1,0 +1,104 @@
+---
+title: About Me
+layout: base.njk
+permalink: /aboutme/
+extraScripts:
+  - /js/form-validation.js
+---
+<header>
+	{% include "header.njk" %}
+	<h1>About Me</h1>
+</header>
+
+<main id="main-content">
+	<section id="introduction">
+		<h2>Introduction</h2>
+		<img src="/images/selfie1.JPG" alt="Selfie of Yilin Cai" width="150">
+		<p>I am <em>deeply</em> passionate about data science and building useful software. I'm a Computer Science student at UC San Diego with a growing interest in Machine Learning and Software Engineering.</p>
+		<p>I enjoy building projects that combine practical engineering with thoughtful design, whether that's developing an AI-powered application, creating a recommendation system, or improving the user experience of a web application.</p>
+		<p>One thing you'll quickly notice about me is that I like breaking complex problems into simple, manageable steps. Whether I'm debugging code, preparing for interviews, or learning a new technology, I naturally organize information into systems that are easier to understand and improve.</p>
+		<p>I believe good software isn't just about making something work&mdash;it's about making it understandable, maintainable, and genuinely useful to the people who use it.</p>
+	</section>
+
+	<section id="career-goals">
+		<h2>Career Goals</h2>
+		<p>I'm looking for opportunities where I can combine strong software engineering fundamentals with practical machine learning applications. I enjoy building products that solve real problems, and I'm always excited to learn from experienced engineers while contributing to meaningful projects.</p>
+	</section>
+
+	<section id="interests">
+		<h2>Interests</h2>
+		<p>Outside of coding, I enjoy:</p>
+		<ul>
+			<li>Digital illustration and character art</li>
+			<li>Exploring practical AI tools and workflows</li>
+			<li>Turning complicated technical topics into organized notes</li>
+			<li>Traveling</li>
+			<li>Reading novels</li>
+		</ul>
+	</section>
+
+	<section id="skills">
+		<h2>Skills</h2>
+		<p>Python <progress value="85" max="100">85%</progress></p>
+		<p>Java <progress value="80" max="100">80%</progress></p>
+		<p>JavaScript <progress value="60" max="100">60%</progress></p>
+		<p>HTML/CSS <progress value="30" max="100">30%</progress></p>
+		<p>C++ <progress value="60" max="100">60%</progress></p>
+	</section>
+
+	<section id="gallery">
+		<h2>Gallery</h2>
+		<img src="/images/travel1.JPG" alt="Travel photo 1" width="150">
+		<img src="/images/travel2.JPG" alt="Travel photo 2" width="150">
+		<img src="/images/travel3.JPG" alt="Travel photo 3" width="150">
+		<img src="/images/travel4.JPG" alt="Travel photo 4" width="150">
+		<img src="/images/travel5.JPG" alt="Travel photo 5" width="150">
+		<img src="/images/travel6.JPG" alt="Travel photo 6" width="150">
+		<img src="/images/travel7.JPG" alt="Travel photo 7" width="150">
+	</section>
+
+	<section id="contact-me">
+		<h2>Contact Me</h2>
+		<svg width="40" height="30">
+			<rect x="2" y="2" width="36" height="20" fill="none" stroke="black" />
+			<path d="M12 22L8 28L18 22" fill="none" stroke="black" />
+		</svg>
+		<ul>
+			<li>Email: <a href="mailto:yilin.cai2004@gmail.com">yilin.cai2004@gmail.com</a></li>
+			<li>Text/SMS: <a href="sms:+16269967333">+1 (626) 996-7333</a></li>
+			<li>LinkedIn: <a href="https://www.linkedin.com/in/ucsdyilin-cai/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ucsdyilin-cai</a></li>
+		</ul>
+		<p><strong>Preferred contact method:</strong> LinkedIn or text message &mdash; I don't usually take phone calls.</p>
+
+		<form id="contact-form" action="#" method="post">
+			<fieldset>
+				<legend>Send me a message</legend>
+				<p>
+					<label for="name">Name</label>
+					<input type="text" id="name" name="name" required minlength="2" maxlength="100" title="Enter your name, 2-100 characters.">
+					<output for="name" aria-live="polite"></output>
+				</p>
+				<p>
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" required title="Enter a valid email address, like you@example.com.">
+					<output for="email" aria-live="polite"></output>
+				</p>
+				<p>
+					<label for="message">Message</label>
+					<textarea id="message" name="message" rows="4" required minlength="10" maxlength="1000" title="Enter a message, 10-1000 characters."></textarea>
+					<output for="message" aria-live="polite"></output>
+				</p>
+				<input type="hidden" name="form-errors" id="form-errors" value="[]">
+				<button type="submit">Send</button>
+			</fieldset>
+		</form>
+	</section>
+
+	<section>
+		<dialog open>
+			<h2>Current Opportunity Status</h2>
+			<p>I am currently open to internship opportunities in machine learning and software engineering.</p>
+			<p><a href="/resume.pdf">View my resume (PDF)</a></p>
+		</dialog>
+	</section>
+</main>

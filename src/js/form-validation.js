@@ -11,6 +11,7 @@ if (form) {
 
 	function describeError(field) {
 		const validity = field.validity;
+
 		if (validity.valueMissing) {
 			return 'This field is required.';
 		}
@@ -26,7 +27,6 @@ if (form) {
 		if (validity.patternMismatch) {
 			return 'Please match the requested format.';
 		}
-		// Fallback: whatever message the browser already generated.
 		return field.validationMessage;
 	}
 	function errorType(field) {
@@ -64,18 +64,17 @@ if (form) {
 			hiddenErrorsField.value = JSON.stringify(errorLog);
 		}
 	}
+
 	fields.forEach((field) => {
 		field.addEventListener('input', () => showMessage(field));
 		field.addEventListener('blur', () => showMessage(field));
 
-		// 'invalid' does not bubble, so it must be attached per field.
 		field.addEventListener('invalid', () => {
 			showMessage(field);
 			logError(field);
 		});
 	});
 
-	// If 'submit' fires at all, every field already passed
 	form.addEventListener('submit', () => {
 		if (hiddenErrorsField) {
 			hiddenErrorsField.value = JSON.stringify(errorLog);
