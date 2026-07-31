@@ -30,3 +30,21 @@ intro-quote {
 	padding: 0.5em 1em;
 	z-index: 100;
 }
+
+/* Part 1 baseline feedback layer . */
+input:user-invalid,
+textarea:user-invalid {
+	border: 2px solid #b3261e;
+}
+
+input:user-valid,
+textarea:user-valid {
+	border: 2px solid #2e7d32;
+}
+
+output {
+	display: block;
+	font-size: 0.9em;
+	color: #b3261e;
+	margin-top: 0.25em;
+}

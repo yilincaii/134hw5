@@ -1,0 +1,20 @@
+---
+layout: base.njk
+---
+<header>
+	{% include "header.njk" %}
+	<p><a href="/notes/">&larr; Back to Notes</a></p>
+</header>
+
+<main id="main-content">
+	<article>
+		<h1>{{ title }}</h1>
+		<p class="post-meta">
+			<span class="post-year">{{ year }}</span>
+			&middot;
+			<span class="post-category">{{ category }}</span>
+		</p>
+
+		{{ content | safe }}
+	</article>
+</main>

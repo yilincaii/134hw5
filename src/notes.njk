@@ -1,0 +1,33 @@
+---
+title: Notes
+layout: base.njk
+permalink: /notes/
+---
+<header>
+	{% include "header.njk" %}
+	<h1>Notes</h1>
+</header>
+
+<main id="main-content">
+	<p>Personal notes on topics I&rsquo;m learning.</p>
+
+	{% set grouped = collections.notes | groupByCategory %}
+	{% for category, posts in grouped %}
+	<section id="{{ category | slugify }}">
+		<h2>{{ category }}</h2>
+		<ul>
+			{% for post in posts %}
+			<li><a href="{{ post.url }}"><span>{{ post.data.year }}:</span> {{ post.data.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</section>
+	{% endfor %}
+
+	<section id="web-development">
+		<h2>Web Development</h2>
+		<ul>
+			<li>HTML/CSS Basics</li>
+			<li>JavaScript &amp; DOM</li>
+		</ul>
+	</section>
+</main>
