@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% include "head.njk" %}
+</head>
+<body>
+	<a class="skip-link" href="#main-content">Skip to main content</a>
+
+	{{ content | safe }}
+
+	{% include "footer.njk" %}
+
+	{% for script in extraScripts %}
+	<script src="{{ script }}" type="module" defer></script>
+	{% endfor %}
+</body>
+</html>

@@ -1,0 +1,40 @@
+---
+title: Home
+layout: base.njk
+extraScripts:
+  - /js/analytics-placeholder.js
+  - /js/hello-world.js
+---
+<header>
+	{% include "header.njk" %}
+	<h1>{{ site.title }}</h1>
+	<intro-quote>
+		<p>&ldquo;I build things at the intersection of data and design.&rdquo;</p>
+	</intro-quote>
+</header>
+
+<main id="main-content">
+	<h2>Explore</h2>
+
+	<article>
+		<h3><a href="/project/">Project</a></h3>
+		<p>My projects and a Kaggle competition.</p>
+	</article>
+
+	<article>
+		<h3><a href="/experience/">Experience</a></h3>
+		<p>Education and work history.</p>
+	</article>
+
+	<article>
+		<h3><a href="/notes/">Notes</a></h3>
+		<p>Notes on software engineering, algorithms, and web development.</p>
+	</article>
+
+	<article>
+		<h3><a href="/aboutme/">About Me</a></h3>
+		<p>Introduction, career goals, interests, and contact info.</p>
+	</article>
+</main>
+
+<hello-world></hello-world>
