@@ -1,0 +1,62 @@
+---
+title: Project
+layout: base.njk
+permalink: /project/
+---
+<header>
+	{% include "header.njk" %}
+	<h1>Projects</h1>
+	<p>A collection of machine learning, data science, and full-stack projects I have built through coursework and independent development.</p>
+</header>
+
+<main id="main-content">
+	<section id="projects" aria-labelledby="projects-heading">
+		<h2 id="projects-heading">Selected Work</h2>
+
+		<article id="kaggle-competition">
+			<h3>Kaggle Competition: LLM Mathematical Reasoning</h3>
+			<p><strong>Type:</strong> Machine Learning and LLM Inference</p>
+			<p>This project focused on improving the mathematical reasoning performance of Qwen3-4B-Thinking, a four-billion-parameter inference model. We worked under the constraints that we could not fine-tune the model weights or use external tools.</p>
+			<p>We designed a string-level post-processing module that handled brace matching, merged multiple <code>\boxed</code> expressions, and separated coordinate-style answers. These changes increased our Kaggle public leaderboard accuracy from 46.9% to 62.5% without requiring additional GPU computation.</p>
+			<p>We also created a fixed validation and ablation-testing framework to support later self-consistency sampling experiments. During the competition, our team briefly reached first place on the public leaderboard.</p>
+			<p><strong>Technologies:</strong> Python, vLLM, PyTorch, Prompt Engineering, Self-Consistency Sampling, Kaggle</p>
+			<ul>
+				<li><a href="https://www.kaggle.com/competitions/cse-151-b-spring-2026-competition/data" target="_blank" rel="noopener noreferrer">View Kaggle Competition</a></li>
+				<li><a href="https://github.com/yilincaii/math-sft-final-inference" target="_blank" rel="noopener noreferrer">View Source Code</a></li>
+				<li><a href="https://docs.google.com/presentation/d/1QvpPYtnCHqaPi213VShEIsc6wXFhY1iuhu65Gi--XCk/edit?usp=sharing" target="_blank" rel="noopener noreferrer">View Project Presentation</a></li>
+			</ul>
+		</article>
+
+		<article id="panda-foodies">
+			<h3>Panda Foodies</h3>
+			<p><time datetime="2025-06">June 2025</time> &ndash; <time datetime="2025-10">October 2025</time></p>
+			<p><strong>Type:</strong> Full-Stack Web Application</p>
+			<p>Panda Foodies is an online food delivery platform that supports food ordering and restaurant-side management. The project gave me experience connecting a React interface with backend services, payment processing, cloud storage, and authentication.</p>
+			<p>I implemented secure user authentication, integrated PayPal payments, and added cloud-based image storage for restaurant and menu content.</p>
+			<picture>
+				<source srcset="/images/panda-foodies-wide.png" media="(min-width: 600px)">
+				<img src="/images/panda-foodies.png" alt="Panda Foodies online ordering interface" width="400" height="250">
+			</picture>
+			<p><strong>Technologies:</strong> Spring Boot, MongoDB, React, AWS S3, PayPal SDK, JWT Authentication</p>
+			<ul>
+				<li><a href="https://www.youtube.com/watch?v=Wz9hSSndkTw" target="_blank" rel="noopener noreferrer">Watch Demo</a></li>
+				<li><a href="https://github.com/yilincaii/Foodies" target="_blank" rel="noopener noreferrer">View Source Code</a></li>
+			</ul>
+		</article>
+
+		<article id="multi-agent-platform">
+			<h3>Multi-Agent AI Platform</h3>
+			<p><time datetime="2025-01">January 2025</time> &ndash; <time datetime="2025-05">May 2025</time></p>
+			<p><strong>Type:</strong> AI Application and Full-Stack Development</p>
+			<p>A multi-agent conversational platform that coordinates specialized agents for automation and information retrieval. The system routes each request to the agent best suited for the task instead of asking one model to handle everything.</p>
+			<p>I developed a modular framework for mathematical problem solving, weather retrieval, and task management, with real-time orchestration between the agents and the user interface.</p>
+			<p><strong>Technologies:</strong> Python, Flask, React, REST APIs, LangGraph</p>
+			<p><a href="https://github.com/yilincaii/AI_agent_Project" target="_blank" rel="noopener noreferrer">View Source Code</a></p>
+		</article>
+
+		<article id="recommendation-system">
+			<h3>Recommendation System for Repurchase Prediction and Personalization</h3>
+			<p><time datetime="2024-01">January 2024</time> &ndash; <time datetime="2024-06">June 2024</time></p>
+			<p><strong>Type:</strong> Machine Learning and Recommendation Systems</p>
+			<p>A recommendation system that predicts which grocery products a customer is likely to purchase again and uses those predictions to produce personalized suggestions.</p>
+			<p>I
